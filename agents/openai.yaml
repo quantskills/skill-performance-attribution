@@ -1,0 +1,3 @@
+name: performance-attribution
+description: A股量化策略绩效归因 skill。三层综合归因（Alpha/Beta/择时 + Brinson 配置/选择/交互 + 因子收益归因含风格行业与 Alpha 残差），输出统一归因报告并做分解对账。详见 SKILL.md。
+entrypoint: SKILL.md

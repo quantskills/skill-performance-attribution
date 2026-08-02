@@ -1,0 +1,6 @@
+# 归因脚本运行依赖（可选，仅当要跑 scripts/ 时安装）
+# python -m pip install -r scripts/requirements.txt
+pandas>=1.5
+numpy>=1.23
+# 可选：读取 .parquet 格式的输入
+pyarrow>=12

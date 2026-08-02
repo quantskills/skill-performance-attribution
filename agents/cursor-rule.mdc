@@ -1,0 +1,18 @@
+---
+description: A股量化策略绩效归因规则（Performance Attribution）——三层综合归因并做分解对账。
+globs: ["**/*.py", "**/*.md"]
+alwaysApply: false
+---
+
+# Performance Attribution
+
+当用户要求对组合/策略做绩效归因时，按 QUANTSKILLS `skill-performance-attribution` 执行：
+
+1. 明确输入：组合收益/权重 + 基准收益，选定范围与基准。
+2. 声明口径：行业映射、因子模型、成本。
+3. 层1 Alpha/Beta/择时：对基准收益做 OLS 回归 → β、Jensen's Alpha、Treynor-Mazuy 择时项。
+4. 层2 Brinson：按行业拆 配置/选择/交互，做对账（Σ效应 ≈ 超额）。
+5. 层3 因子归因：因子收益（读 skill-risk-model 输出或内置截面 WLS）→ 暴露差×因子收益 → Alpha 残差，对账。
+6. 输出统一归因报告（Markdown + JSON），每层附对账残差。
+
+**纪律**：分解必须对账（< 1e-6）；缺输入 → 对应层降级，绝不编造暴露硬算；只述不荐，不构成投资建议。
